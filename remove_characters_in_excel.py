@@ -8,9 +8,6 @@ Remove any character that is not alpha-numeric (a-z or 0-9)
 
 Leaves # for suite numbers in address fields, but can be modified to replace # with ste or suite
 
-User needs pandas & openpyxl, so need to figure out how to package everything without 
-the end user needing to install dependencies - was thinking virtual env or wrapping inside docker container
-
 '''
 def import_excel_data():
     global v
@@ -28,9 +25,9 @@ def clean_excel():
     return data_frame.to_excel(asksaveasfilename())
 
 root = tk.Tk()
-tk.Label(root, text='File Path').grid(row = 0, column = 0)
+tk.Label(root, text = 'File Path').grid(row = 0, column = 0)
 v = tk.StringVar()
-entry = tk.Entry(root, textvariable=v).grid(row=0, column=1)
+entry = tk.Entry(root, textvariable = v).grid(row = 0, column = 1)
 tk.Button(root, text = 'Choose File', command = import_excel_data).grid(row = 1, column = 0)
 tk.Button(root, text = 'Clean Excel File', command = clean_excel).grid(row = 2, column = 0)
 tk.Button(root, text = 'Close', command = root.destroy).grid(row = 1, column = 1)
